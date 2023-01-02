@@ -71,13 +71,12 @@ export const config = {
   handlerUpload.use(uploadFile);
 
   handlerUpload.post((req,res)=>{
-
     const mimetyp = req.file.mimetype;
 
     if(mimetyp == undefined){
         res.json({menssage: "Selecione um tipo de imagem válida como .png, .jpeg ou jpg"});
     }else{
-        res.json({menssage: "Upload realizado com sucesso"});
+        res.json({img: req.file.filename});
     }
 
   });
