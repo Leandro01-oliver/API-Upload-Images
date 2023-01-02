@@ -1,11 +1,11 @@
 import axios from "axios"
 
-const reqUpload =  (img,setGetImg) => {
+const reqUpload = async (img,setGetImg) => {
 
     let formData = new FormData(); 
     formData.append('file', img); 
 
-     axios.post("/api/upload",formData)
+    await axios.post("/api/upload",formData)
      .then((res)=>{
         setGetImg(res.data.img)
     }).catch((e)=>{

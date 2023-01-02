@@ -8,7 +8,6 @@ export default function Home() {
 
   const [getImg,setGetImg] = useState("");
 
-  console.log(getImg)
   return (
     <>
     {!getImg ?

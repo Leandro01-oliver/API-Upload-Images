@@ -23,7 +23,7 @@ export const config = {
       cb(null, 'public/files')
     },
     filename: function (req, file, cb) {
-      cb(null, file.fieldname+path.extname(file.originalname))
+      cb(null, file.originalname)
     },fileFilter: function (req, file, cb) {
         var typeArray = file.mimetype.split('/');
         var fileType = typeArray[1];
@@ -72,11 +72,11 @@ export const config = {
 
   handlerUpload.post((req,res)=>{
     const mimetyp = req.file.mimetype;
-
+    
     if(mimetyp == undefined){
         res.json({menssage: "Selecione um tipo de imagem válida como .png, .jpeg ou jpg"});
     }else{
-        res.json({img: req.file.filename});
+        res.json({img: req.file.originalname});
     }
 
   });
